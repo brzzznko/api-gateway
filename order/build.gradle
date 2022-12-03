@@ -1,0 +1,7 @@
+apply plugin: 'apigateway.spring-conventions'
+
+
+dependencies {
+
+}
+

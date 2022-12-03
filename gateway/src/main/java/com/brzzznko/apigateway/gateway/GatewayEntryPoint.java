@@ -1,4 +1,4 @@
-package com.brzzzko.apigateway.gateway;
+package com.brzzznko.apigateway.gateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
