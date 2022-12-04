@@ -3,4 +3,5 @@ include 'gateway'
 include 'order'
 include 'common'
 include 'product'
+include 'customer'
 
