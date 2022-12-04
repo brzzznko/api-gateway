@@ -11,6 +11,6 @@ public class OrderInfo {
 
     private final Long id;
     private final Long productId;
-    private final String title;
+    private final String productTitle;
 
 }

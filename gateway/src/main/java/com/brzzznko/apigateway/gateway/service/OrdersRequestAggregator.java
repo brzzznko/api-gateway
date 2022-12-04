@@ -9,10 +9,8 @@ import com.brzzznko.apigateway.gateway.model.OrdersDTO;
 import com.brzzznko.apigateway.order.api.model.OrderDTO;
 import com.brzzznko.apigateway.product.api.ProductDTO;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -24,19 +22,11 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class OrdersRequestAggregator {
 
-    @Value("${order.aggregator.threads.count:2}")
-    private int threadsCount;
-
-    private ExecutorService executor;
+    private final ExecutorService executor = Executors.newCachedThreadPool();
 
     private final OrderClient orderClient;
     private final ProductClient productClient;
     private final CustomerClient customerClient;
-
-    @PostConstruct
-    public void init() {
-        executor = Executors.newFixedThreadPool(threadsCount);
-    }
 
     public OrdersDTO getOrders(Long id) {
         Future<CustomerDTO> customerTask = executor.submit(() -> customerClient.getCustomerInfo(id));
@@ -61,7 +51,11 @@ public class OrdersRequestAggregator {
 
     private OrderInfo getOrderInfo(OrderDTO order) {
         ProductDTO product = productClient.getProductInfo(order.getProductId());
-        return OrderInfo.builder().id(order.getId()).productId(product.getId()).title(product.getTitle()).build();
+        return OrderInfo.builder()
+                        .id(order.getId())
+                        .productId(product.getId())
+                        .productTitle(product.getTitle())
+                        .build();
     }
 
 }
