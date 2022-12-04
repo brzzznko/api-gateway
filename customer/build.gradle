@@ -3,4 +3,5 @@ apply plugin: 'apigateway.db-conventions'
 
 dependencies {
     implementation project('customer-api')
+    implementation project(':common:errors')
 }

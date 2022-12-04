@@ -3,6 +3,7 @@ apply plugin: 'apigateway.db-conventions'
 
 dependencies {
     implementation project(':product:product-api')
+    implementation project(':common:errors')
 
 }
 

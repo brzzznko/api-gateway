@@ -4,6 +4,7 @@ dependencies {
     implementation project(':order:order-api')
     implementation project(':product:product-api')
     implementation project(':customer:customer-api')
+    implementation project(':common:errors')
 
     implementation 'org.springframework.cloud:spring-cloud-starter-openfeign:3.1.5'
 }

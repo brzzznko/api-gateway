@@ -7,8 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.concurrent.ExecutionException;
-
 @RestController
 @RequiredArgsConstructor
 public class GatewayController {
@@ -16,8 +14,7 @@ public class GatewayController {
     private final OrdersRequestAggregator aggregator;
 
     @GetMapping("api/v1/orders/")
-    public OrdersDTO getOrders(@RequestParam("client_id") Long id)
-            throws ExecutionException, InterruptedException {
+    public OrdersDTO getOrders(@RequestParam("client_id") Long id) {
         return aggregator.getOrders(id);
     }
 

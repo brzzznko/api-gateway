@@ -1,5 +1,6 @@
 package com.brzzznko.apigateway.customer.service;
 
+import com.brzzznko.apigateway.common.errors.NotFoundException;
 import com.brzzznko.apigateway.customer.api.dto.CustomerDTO;
 import com.brzzznko.apigateway.customer.model.entity.Customer;
 import com.brzzznko.apigateway.customer.repository.CustomerRepository;
@@ -15,7 +16,7 @@ public class CustomerService {
     public CustomerDTO getCustomer(Long id) {
         return repository.findById(id)
                          .map(this::buildResponseDto)
-                         .orElseThrow(() -> new IllegalArgumentException("Customer with id: " + id + " not found"));
+                         .orElseThrow(() -> new NotFoundException("Customer with id: " + id + " not found"));
     }
 
     private CustomerDTO buildResponseDto(Customer customer) {

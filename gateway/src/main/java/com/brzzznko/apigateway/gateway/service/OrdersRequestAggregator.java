@@ -38,11 +38,20 @@ public class OrdersRequestAggregator {
         executor = Executors.newFixedThreadPool(threadsCount);
     }
 
-    public OrdersDTO getOrders(Long id) throws ExecutionException, InterruptedException {
-        Future<CustomerDTO> customer = executor.submit(() -> customerClient.getCustomerInfo(id));
-        Future<List<OrderInfo>> orders = executor.submit(() -> getOrdersInfo(id));
+    public OrdersDTO getOrders(Long id) {
+        Future<CustomerDTO> customerTask = executor.submit(() -> customerClient.getCustomerInfo(id));
+        Future<List<OrderInfo>> ordersTask = executor.submit(() -> getOrdersInfo(id));
 
-        return OrdersDTO.builder().customerName(customer.get().getName()).orders(orders.get()).build();
+        CustomerDTO customer;
+        List<OrderInfo> orders;
+        try {
+            customer = customerTask.get();
+            orders = ordersTask.get();
+        } catch (InterruptedException | ExecutionException e) {
+            throw new RuntimeException(e);
+        }
+
+        return OrdersDTO.builder().customerName(customer.getName()).orders(orders).build();
     }
 
     private List<OrderInfo> getOrdersInfo(Long id) {
