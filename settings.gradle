@@ -1,4 +1,6 @@
 rootProject.name = 'apigateway'
 include 'gateway'
 include 'order'
+include 'common'
+include 'product'
 

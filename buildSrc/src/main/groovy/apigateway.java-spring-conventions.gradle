@@ -1,0 +1,9 @@
+plugins {
+    id 'java'
+    id 'apigateway.spring-conventions'
+}
+
+dependencies {
+    compileOnly "org.projectlombok:lombok:${lombokVersion}"
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+}
