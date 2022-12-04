@@ -10,4 +10,3 @@ findProject(':order:api')?.name = 'order-api'
 findProject(':customer:api')?.name = 'customer-api'
 findProject(':product:api')?.name = 'product-api'
 findProject(':common:errors')?.name = 'errors'
-

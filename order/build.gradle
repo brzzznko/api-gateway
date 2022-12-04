@@ -4,4 +4,3 @@ apply plugin: 'apigateway.db-conventions'
 dependencies {
     implementation project(':order:order-api')
 }
-
