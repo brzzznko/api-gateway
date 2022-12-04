@@ -1,9 +1,13 @@
 rootProject.name = 'apigateway'
-include 'gateway'
-include 'order'
+include 'gateway', 'order', 'product', 'customer'
 include 'common'
-include 'product'
-include 'customer'
-include 'order:api'
-findProject(':order:api')?.name = 'api'
+include 'order:api', 'product:api', 'customer:api'
+
+project(':order:api').projectDir = file('order/api')
+project(':product:api').projectDir = file('product/api')
+project(':customer:api').projectDir = file('customer/api')
+
+findProject(':order:api')?.name = 'order-api'
+findProject(':customer:api')?.name = 'customer-api'
+findProject(':product:api')?.name = 'product-api'
 

@@ -1,7 +1,9 @@
 apply plugin: 'apigateway.java-spring-conventions'
 
 dependencies {
-    implementation project(':order:api')
+    implementation project(':order:order-api')
+    implementation project(':product:product-api')
+    implementation project(':customer:customer-api')
 
     implementation 'org.springframework.cloud:spring-cloud-starter-openfeign:3.1.5'
 }

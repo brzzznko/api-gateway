@@ -4,7 +4,12 @@
 
 /build
 /*/build
-
+/*/*/build
+/*/*/*/build
+/out
+/*/out
+/*/*/out
+/*/*/*/out
 
 # Compiled class file
 *.class

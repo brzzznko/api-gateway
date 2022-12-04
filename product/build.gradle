@@ -2,5 +2,7 @@ apply plugin: 'apigateway.kotlin-spring-conventions'
 apply plugin: 'apigateway.db-conventions'
 
 dependencies {
+    implementation project(':product:product-api')
+
 }
 
