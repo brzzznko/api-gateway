@@ -4,4 +4,6 @@ include 'order'
 include 'common'
 include 'product'
 include 'customer'
+include 'order:api'
+findProject(':order:api')?.name = 'api'
 

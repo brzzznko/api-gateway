@@ -1,4 +1,4 @@
-package com.brzzznko.apigateway.order.model;
+package com.brzzznko.apigateway.order.api.model;
 
 import lombok.Builder;
 import lombok.Getter;

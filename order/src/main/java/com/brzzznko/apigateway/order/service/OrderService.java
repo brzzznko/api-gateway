@@ -1,6 +1,6 @@
 package com.brzzznko.apigateway.order.service;
 
-import com.brzzznko.apigateway.order.model.OrderDTO;
+import com.brzzznko.apigateway.order.api.model.OrderDTO;
 import com.brzzznko.apigateway.order.model.entity.Order;
 import com.brzzznko.apigateway.order.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;

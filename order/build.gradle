@@ -2,5 +2,6 @@ apply plugin: 'apigateway.java-spring-conventions'
 apply plugin: 'apigateway.db-conventions'
 
 dependencies {
+    implementation project(':order:api')
 }
 
