@@ -1,1 +1,2 @@
-apply plugin: 'apigateway.java-spring-conventions'
+apply plugin: 'apigateway.java-conventions'
+apply plugin: 'apigateway.spring-dependency-conventions'
